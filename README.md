@@ -1,5 +1,5 @@
 # TUI - Terminal User Interface
-helps to create terminal based interface
+framework to create terminal applications
 
 ## How does TUI works ?
 It provides components like frames and canvas containing methods to draw on it.
