@@ -29,6 +29,8 @@ class Frame {
       const pos = {x: x + toX, y: y + toY};
       this.put(pixel, pos.x, pos.y);
     });
+
+    component.sync();
   }
 
   //TODO: write remove(), drawBorder();

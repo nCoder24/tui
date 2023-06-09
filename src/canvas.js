@@ -1,7 +1,5 @@
 const EventEmitter = require("events");
 
-const emptyPixel = " ";
-
 class Canvas extends EventEmitter {
   #pixels;
 
@@ -13,6 +11,14 @@ class Canvas extends EventEmitter {
   put(pixel, x, y) {
     this.#pixels[x][y] = pixel;
     this.emit("put", pixel, x, y);
+  }
+
+  sync() {
+    this.#pixels.forEach((col, x) => {
+      col.forEach((pixel, y) => {
+        this.put(pixel, x, y);
+      });
+    });
   }
 }
 

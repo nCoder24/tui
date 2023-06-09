@@ -1,0 +1,10 @@
+{
+  "thin-border": {
+    "horizontal-line": "─",
+    "virticle-line": "│",
+    "top-left-corner": "┌",
+    "top-right-corner": "┐",
+    "bottom-left-corner": "└",
+    "bottom-right-corner": "┘"
+  }
+}
