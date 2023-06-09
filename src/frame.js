@@ -24,7 +24,14 @@ class Frame {
     this.#stdin.write(pixel);
   }
 
-  //TODO: write add(), remove(), drawBorder();
+  add(component, toX, toY) {
+    component.on("put", (pixel, x, y) => {
+      const pos = {x: x + toX, y: y + toY};
+      this.put(pixel, pos.x, pos.y);
+    });
+  }
+
+  //TODO: write remove(), drawBorder();
 }
 
 exports.Frame = Frame;
