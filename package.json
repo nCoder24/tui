@@ -1,0 +1,28 @@
+{
+  "name": "tui",
+  "version": "1.0.0",
+  "description": "Terminal User Interface: framework to create terminal applications",
+  "main": "main.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nCoder24/tui.git"
+  },
+  "keywords": [
+    "terminal",
+    "console",
+    "command-line",
+    "tui"
+  ],
+  "author": "nCoder24",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nCoder24/tui/issues"
+  },
+  "homepage": "https://github.com/nCoder24/tui#readme"
+}
