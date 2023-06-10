@@ -29,25 +29,24 @@ class Canvas extends EventEmitter {
     });
   }
 
-  drawBorder() {
-    this.#borderWidth = 1;
-    const { thinBorder } = require("../resourses/box-chars.json");
+  drawBorder(config) {
+    this.#borderWidth = config.width;
     this.#pixels.forEach((col) => {
-      const horizontalLine = thinBorder.horizontalLine.repeat(2);
+      const horizontalLine = config.horizontalLine.repeat(2);
       col.unshift(horizontalLine);
       col.push(horizontalLine);
     });
 
     const leftCol = (
-      thinBorder.topLeftCorner +
-      thinBorder.leftVirticleLine.repeat(this.#pixels[0].length - 2) +
-      thinBorder.bottomLeftCorner
+      config.topLeftCorner +
+      config.leftVirticleLine.repeat(this.#pixels[0].length - 2) +
+      config.bottomLeftCorner
     ).match(/../g);
 
     const rightCol = (
-      thinBorder.topRightCorner +
-      thinBorder.rightVirticleLine.repeat(this.#pixels[0].length - 2) +
-      thinBorder.bottomRightCorner
+      config.topRightCorner +
+      config.rightVirticleLine.repeat(this.#pixels[0].length - 2) +
+      config.bottomRightCorner
     ).match(/../g);
 
     this.#pixels.unshift(leftCol);

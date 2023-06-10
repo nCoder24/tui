@@ -6,6 +6,7 @@
     "topLeftCorner": "┌─",
     "topRightCorner": "─┐",
     "bottomLeftCorner": "└─",
-    "bottomRightCorner": "─┘"
+    "bottomRightCorner": "─┘",
+    "width": 1
   }
 }

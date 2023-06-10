@@ -12,7 +12,9 @@ const main = () => {
   frame.add(canvas, 2, 2);
   canvas.put("--", 1, 1);
   canvas.put("@@", 0, 1);
-  canvas.drawBorder();
+
+  const { thinBorder } = require("./resourses/box-chars.json");
+  canvas.drawBorder(thinBorder);
   
   process.stdin.read();
 }
