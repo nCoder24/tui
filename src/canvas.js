@@ -3,11 +3,13 @@ const blankPixel = "  ";
 
 class Canvas extends EventEmitter {
   #pixels;
+  #size;
   #borderWidth;
   #components;
 
   constructor(hight, width) {
     super();
+    this.#size = {hight, width};
     this.#pixels = new Array(hight)
       .fill()
       .map(() => new Array(width).fill(blankPixel));

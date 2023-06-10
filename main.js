@@ -13,10 +13,11 @@ const main = () => {
   hideCursor();
   console.clear();
   
+  frame.setBackground("xx")
   frame.add(canvas, 2, 2);
   
-  canvas.put("--", 1, 1);
-  canvas.put("@@", 0, 1);
+  innerCanvas.put("--", 0, 0);
+  innerCanvas.put("@@", 0, 1);
   
   const { thinBorder } = require("./resourses/box-chars.json");
   canvas.drawBorder(thinBorder);

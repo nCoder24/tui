@@ -1,12 +1,18 @@
+const blankPixel = "  ";
+
 class Frame {
   #position;
   #size;
   #stdin;
+  #pixels;
 
   constructor(x, y, hight, width, stdin) {
     this.#position = { x, y };
     this.#size = { hight, width };
     this.#stdin = stdin;
+    this.#pixels = new Array(hight)
+    .fill()
+    .map(() => new Array(width).fill(blankPixel));
   }
 
   #normalize({x, y}) {
@@ -14,6 +20,15 @@ class Frame {
       x: 2 * (x + this.#position.x),
       y: y + this.#position.y,
     };
+  }
+
+  setBackground(pixel) {
+    this.#pixels.forEach((col, x) => {
+      col.forEach((_, y) => {
+        this.#pixels[x][y] = pixel;
+        this.put(pixel, x, y);
+      });
+    });
   }
 
   put(pixel, relativeX, relativeY) {
