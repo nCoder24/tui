@@ -4,6 +4,7 @@ const blankPixel = "  ";
 class Canvas extends EventEmitter {
   #pixels;
   #borderWidth;
+  #components;
 
   constructor(hight, width) {
     super();
@@ -11,6 +12,7 @@ class Canvas extends EventEmitter {
       .fill()
       .map(() => new Array(width).fill(blankPixel));
     this.#borderWidth = 0;
+    this.#components = [];
   }
 
   put(pixel, x, y) {
@@ -27,6 +29,18 @@ class Canvas extends EventEmitter {
         this.emit("put", pixel, x, y);
       });
     });
+
+    this.#components.forEach((component) => component.sync);
+  }
+
+  add(component, toX, toY) {
+    this.#components.push(component);
+    component.on("put", (pixel, x, y) => {
+      const pos = { x: x + toX, y: y + toY };
+      this.put(pixel, pos.x, pos.y);
+    });
+
+    component.sync();
   }
 
   drawBorder(config) {

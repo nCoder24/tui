@@ -6,15 +6,21 @@ const hideCursor = () => process.stdout.write('\u001B[?25l');
 
 const main = () => {
   const frame = new Frame(0, 0, 10, 10, process.stdout);
-  const canvas = new Canvas(5, 3);
+  const canvas = new Canvas(5, 5);
+  const innerCanvas = new Canvas(2, 2);
+  canvas.add(innerCanvas, 0, 0);
+  
   hideCursor();
   console.clear();
+  
   frame.add(canvas, 2, 2);
+  
   canvas.put("--", 1, 1);
   canvas.put("@@", 0, 1);
-
+  
   const { thinBorder } = require("./resourses/box-chars.json");
   canvas.drawBorder(thinBorder);
+  innerCanvas.drawBorder(thinBorder);
   
   process.stdin.read();
 }
